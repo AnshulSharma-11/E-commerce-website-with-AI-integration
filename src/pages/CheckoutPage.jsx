@@ -4,31 +4,31 @@ import { askClaude } from "../api";
 
 
 export default function CheckoutPage({ cart, dispatch, setPage }) {
-  const [f, setF] = useState({
+  let [f, setF] = useState({
     email: "", first: "", last: "",
     address: "", city: "", zip: "",
     card: "4242 4242 4242 4242", expiry: "12/28", cvc: "",
   });
-  const [placed,   setPlaced]   = useState(false);
-  const [aiNote,   setAiNote]   = useState("");
-  const [loadNote, setLoadNote] = useState(false);
+  let [placed,   setPlaced]   = useState(false);
+  let [aiNote,   setAiNote]   = useState("");
+  let [loadNote, setLoadNote] = useState(false);
 
-  const upd = (key, val) => setF(prev => ({ ...prev, [key]: val }));
+  let upd = (key, val) => setF(prev => ({ ...prev, [key]: val }));
 
-  const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
-  const shipping = subtotal > 150 ? 0 : 9.99;
-  const total    = subtotal + shipping;
+  let subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  let shipping = subtotal > 150 ? 0 : 9.99;
+  let total    = subtotal + shipping;
 
   // Personalized AI greeting on mount
   useEffect(() => {
     if (!cart.length) return;
     setLoadNote(true);
-    const names = cart.map(i => i.name).join(", ");
+    let names = cart.map(i => i.name).join(", ");
     askClaude(
       `The customer is buying: ${names}. Write a warm 1-sentence thank-you + style tip.`,
       "Friendly fashion assistant. One sentence, warm and personal."
     ).then(result => { setAiNote(result); setLoadNote(false); });
-  }, []);
+  }, [cart]);
 
   // ── Order Confirmed Screen ──────────────────────────────────────────────────
   if (placed) {
