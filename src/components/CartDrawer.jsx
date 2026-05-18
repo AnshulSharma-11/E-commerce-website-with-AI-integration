@@ -1,8 +1,8 @@
 // components/CartDrawer.jsx
 export default function CartDrawer({ cart, dispatch, open, setOpen, setPage }) {
-  const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
-  const shipping = subtotal > 150 ? 0 : 9.99;
-  const total    = subtotal + shipping;
+  let subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  let shipping = subtotal > 150 ? 0 : 9.99;
+  let total    = subtotal + shipping;
 
   return (
     <>

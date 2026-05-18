@@ -6,15 +6,15 @@ import AIAssistant from "../components/AIAssistant.jsx";
 import { PRODUCTS } from "../Products/store.js";
 
 export default function ShopPage({ dispatch, showToast }) {
-  const [cat, setCat]   = useState("All");
-  const [maxP, setMaxP] = useState(300);
-  const [sort, setSort] = useState("featured");
+  let [cat, setCat]   = useState("All");
+  let [maxP, setMaxP] = useState(300);
+  let [sort, setSort] = useState("featured");
 
   // Derive category list
-  const categories = ["All", ...new Set(PRODUCTS.map(p => p.category))];
+  let categories = ["All", ...new Set(PRODUCTS.map(p => p.category))];
 
   // Filter + sort
-  const filtered = PRODUCTS
+  let filtered = PRODUCTS
     .filter(p => cat === "All" || p.category === cat)
     .filter(p => p.price <= maxP)
     .sort((a, b) => {
@@ -24,7 +24,7 @@ export default function ShopPage({ dispatch, showToast }) {
       return 0;
     });
 
-  const addToCart = (product) => {
+  let addToCart = (product) => {
     dispatch({ type: "ADD", product });
     showToast(`${product.name} added to bag ✓`);
   };

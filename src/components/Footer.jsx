@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 // components/Footer.jsx
 export default function Footer() {
-  const columns = [
+  let columns = [
     { title: "Shop",    links: ["New Arrivals", "Sneakers", "Bags", "Outerwear", "Accessories"] },
     { title: "Company", links: ["About Us", "Sustainability", "Careers", "Press"] },
     { title: "Help",    links: ["Shipping & Returns", "Size Guide", "Contact", "FAQ"] },
@@ -23,7 +25,7 @@ export default function Footer() {
             <div key={col.title} className="col-6 col-lg-2">
               <div className="footer-col-title">{col.title}</div>
               {col.links.map(link => (
-                <a key={link} className="footer-link">{link}</a>
+                <Link key={link} className="footer-link">{link}</Link>
               ))}
             </div>
           ))}

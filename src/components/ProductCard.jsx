@@ -4,17 +4,17 @@ import { askClaude } from "../api";
 
 
 export default function ProductCard({ product, onAdd }) {
-  const [desc, setDesc]         = useState("");
-  const [loadDesc, setLoadDesc] = useState(false);
-  const [showDesc, setShowDesc] = useState(false);
+  let [desc, setDesc]         = useState("");
+  let [loadDesc, setLoadDesc] = useState(false);
+  let [showDesc, setShowDesc] = useState(false);
 
-  const fetchDesc = async () => {
+  let fetchDesc = async () => {
     // Toggle off if already loaded
     if (desc) { setShowDesc(s => !s); return; }
 
     setLoadDesc(true);
     setShowDesc(true);
-    const result = await askClaude(
+    let result = await askClaude(
       `One-sentence product description for "${product.name}" ($${product.price}, category: ${product.category}). Punchy, fashion-forward.`,
       "You are a fashion copywriter. Respond with exactly one sentence. No quotes or extra text."
     );

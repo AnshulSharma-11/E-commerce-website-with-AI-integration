@@ -4,7 +4,7 @@ import { askClaude } from "../api";
 
 
 
-const SUGGESTION_CHIPS = [
+let SUGGESTION_CHIPS = [
   "Outfit ideas for a summer wedding",
   "What's trending in fashion right now?",
   "Best accessories under $100?",
@@ -12,15 +12,15 @@ const SUGGESTION_CHIPS = [
 ];
 
 export default function AIAssistant() {
-  const [reply, setReply]     = useState("");
-  const [loading, setLoading] = useState(false);
-  const [asked, setAsked]     = useState(false);
+  let [reply, setReply]     = useState("");
+  let [loading, setLoading] = useState(false);
+  let [asked, setAsked]     = useState(false);
 
-  const ask = async (question) => {
+  let ask = async (question) => {
     setLoading(true);
     setAsked(true);
     setReply("");
-    const result = await askClaude(
+    let result = await askClaude(
       question,
       "You are a warm, stylish fashion assistant for BLOSSOM., a premium fashion brand. Give helpful style advice in 2-3 sentences max."
     );
