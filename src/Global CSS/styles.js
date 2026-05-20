@@ -1,9 +1,9 @@
 // ─── Global CSS ───────────────────────────────────────────────────────────────
-export const GLOBAL_CSS = `
+export let GLOBAL_CSS = `
   :root {
-    --primary:   #E8431A;
+    --primary:   #ed451b;
     --primary-lt:#FF6B45;
-    --teal:      #1A8C7A;
+    --teal:      #617c78;
     --teal-lt:   #22B5A0;
     --amber:     #F5A623;
     --ivory:     #FFFDF8;
@@ -36,7 +36,7 @@ export const GLOBAL_CSS = `
   .cart-bubble { position: absolute; top: -7px; right: -7px; background: var(--amber); color: var(--text); border-radius: 50%; width: 20px; height: 20px; font-size: .65rem; font-weight: 800; display: flex; align-items: center; justify-content: center; border: 2px solid var(--white); }
 
   /* HERO */
-  .hero { background: linear-gradient(135deg, var(--cream) 0%, var(--peach) 60%, #fde8c8 100%); padding: 5rem 0 4rem; position: relative; overflow: hidden; }
+  .hero { background: linear-gradient(135deg, var(--cream) 0%, var(--peach) 10%, #d7ba80 100%); padding: 5rem 0 4rem; position: relative; overflow: hidden; }
   .hero::after { content: ''; position: absolute; bottom: -60px; right: -60px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(232,67,26,.12) 0%, transparent 70%); pointer-events: none; }
   .hero-eyebrow { display: inline-flex; align-items: center; gap: .5rem; background: var(--peach); border: 1.5px solid rgba(232,67,26,.25); color: var(--primary); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: .3rem .9rem; border-radius: 20px; margin-bottom: 1.25rem; }
   .hero-title { font-family: var(--font-disp); font-size: clamp(2.8rem, 5vw, 4.8rem); font-weight: 900; line-height: 1.02; letter-spacing: -2px; color: var(--text); margin-bottom: 1.25rem; }

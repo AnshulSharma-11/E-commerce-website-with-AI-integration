@@ -5,15 +5,15 @@ import { askClaude } from "../api.js";
 import { MOCK_ORDERS } from "../Products/store.js";
 
 export default function OrdersPage({ setPage }) {
-  const [insights, setInsights] = useState({});
-  const [loading,  setLoading]  = useState({});
+  let [insights, setInsights] = useState({});
+  let [loading,  setLoading]  = useState({});
 
-  const getRec = async (order) => {
+  let getRec = async (order) => {
     if (insights[order.id]) return;
     setLoading(l => ({ ...l, [order.id]: true }));
 
-    const names = order.items.map(i => i.name).join(", ");
-    const result = await askClaude(
+    let names = order.items.map(i => i.name).join(", ");
+    let result = await askClaude(
       `Customer previously bought: ${names}. Suggest ONE specific product they'd love next from a fashion store.`,
       "Fashion recommendation AI. One sentence, specific, enthusiastic."
     );

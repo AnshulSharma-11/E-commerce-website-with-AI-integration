@@ -22,7 +22,7 @@ export default function AIAssistant() {
     setReply("");
     let result = await askClaude(
       question,
-      "You are a warm, stylish fashion assistant for BLOSSOM., a premium fashion brand. Give helpful style advice in 2-3 sentences max."
+      "You are a warm, stylish fashion assistant for GOSOME., a premium fashion brand. Give helpful style advice in 2-3 sentences max."
     );
     setReply(result);
     setLoading(false);

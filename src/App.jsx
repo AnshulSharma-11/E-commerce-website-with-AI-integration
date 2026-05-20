@@ -18,17 +18,17 @@ import { GLOBAL_CSS } from "./Global CSS/styles.js";
 export default function App() {
   useBootstrap();
 
-  const [cart, dispatch]        = useReducer(cartReducer, []);
-  const [page, setPage]         = useState("home");
-  const [cartOpen, setCartOpen] = useState(false);
-  const [toast, setToast]       = useState({ msg: "", show: false });
+  let [cart, dispatch]        = useReducer(cartReducer, []);
+  let [page, setPage]         = useState("home");
+  let [cartOpen, setCartOpen] = useState(false);
+  let [toast, setToast]       = useState({ msg: "", show: false });
 
-  const showToast = useCallback((msg) => {
+  let showToast = useCallback((msg) => {
     setToast({ msg, show: true });
     setTimeout(() => setToast(t => ({ ...t, show: false })), 2800);
   }, []);
 
-  const cartCount = cart.reduce((s, i) => s + i.qty, 0);
+  let cartCount = cart.reduce((s, i) => s + i.qty, 0);
 
   return (
     <>

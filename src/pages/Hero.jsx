@@ -1,6 +1,6 @@
 // pages/Hero.jsx
 export default function Hero({ setPage }) {
-  const stats = [
+  let stats = [
     ["10K+", "Products"],
     ["98%",  "Satisfaction"],
     ["Free", "Returns"],
@@ -14,7 +14,7 @@ export default function Hero({ setPage }) {
           {/* Left: Copy */}
           <div className="col-lg-6">
             <div className="hero-eyebrow">
-              <i className="bi bi-stars" /> SS26 Collection
+              <i className="bi bi-stars" /> S26 Collection
             </div>
 
             <h1 className="hero-title">

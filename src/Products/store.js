@@ -1,5 +1,5 @@
 // ─── Products ────────────────────────────────────────────────────────────────
-export const PRODUCTS = [
+export let PRODUCTS = [
   { id:1,  name:"Air Max Pulse",        category:"Sneakers",    price:129, rating:4.8, reviews:312, img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80",  badge:"Hot"  },
   { id:2,  name:"Leather Tote Bag",     category:"Bags",        price:189, rating:4.6, reviews:189, img:"https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&q=80",  badge:null   },
   { id:3,  name:"Slim Fit Oxford",      category:"Shirts",      price:79,  rating:4.7, reviews:423, img:"https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=400&q=80",  badge:"New"  },
@@ -15,7 +15,7 @@ export const PRODUCTS = [
 ];
 
 // ─── Mock Orders ─────────────────────────────────────────────────────────────
-export const MOCK_ORDERS = [
+export let MOCK_ORDERS = [
   { id:"ORD-7841", date:"Mar 1, 2026",  total:408, status:"Delivered", items:[PRODUCTS[0], PRODUCTS[3]] },
   { id:"ORD-7756", date:"Feb 12, 2026", total:189, status:"Delivered", items:[PRODUCTS[1]]              },
   { id:"ORD-7690", date:"Jan 8, 2026",  total:344, status:"Delivered", items:[PRODUCTS[7], PRODUCTS[4]] },
@@ -26,7 +26,7 @@ export const MOCK_ORDERS = [
 export function cartReducer(state, { type, product, id, qty }) {
   switch (type) {
     case "ADD": {
-      const ex = state.find(i => i.id === product.id);
+      let ex = state.find(i => i.id === product.id);
       return ex
         ? state.map(i => i.id === product.id ? { ...i, qty: i.qty + 1 } : i)
         : [...state, { ...product, qty: 1 }];
